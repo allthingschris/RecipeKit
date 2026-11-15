@@ -130,3 +130,18 @@ A single reusable template gives every collection a coherent, attractive interfa
 **Consequences**
 The renderer must load `Project Files/templates/recipe.html`, generate HTML from approved `recipe.json` data, preserve offline fallback behavior and render optional fields only when present. `Project Files/standards/HTML Style.md` owns the detailed presentation contract.
 
+## D009 — Adopt approved Iconly icons for recipe UI
+
+**Date:** 2026-11-15
+
+**Context**
+The recipe design used hand-written outline icons for yield and printing. Matching Iconly Pro spoon-and-fork and printer SVGs were supplied by the owner, who confirmed permission to use them.
+
+**Decision**
+Adopt the supplied Iconly Pro SVGs for yield and print controls, retaining their 24×24 viewBox, warm `#987762` fill and the duotone fork treatment. Store source SVGs as separate icon assets and embed them through the common renderer. Keep asset-specific licensing separate from the toolkit's code license.
+
+**Rationale**
+A matched icon family improves visual coherence, while single-source SVG assets simplify future replacements.
+
+**Consequences**
+Shared HTML templates and generated recipe pages must use the same assets and avoid inherited strokes that alter filled artwork. Verify any external redistribution scope before granting third-party icon rights.

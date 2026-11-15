@@ -36,3 +36,11 @@ python3 'Project Files/tools/recipekit.py' render /path/to/recipe.json --site-na
 The generated HTML, Markdown and JSON-LD should be checked into the consumer's recipe collection only after validation and review.
 
 **Font reference:** https://fonts.google.com/specimen/Google+Sans+Flex
+
+## Iconography
+
+- Preferred icons: Iconly Pro artwork supplied and authorized for use by the collection owner. The specific printer and spoon-and-fork SVGs are kept as distinct, reusable assets in `Project Files/assets/icons/`.
+- The renderer embeds each SVG inline into the generated HTML (no external icon library or network dependency).
+- Icon geometry, the warm `#987762` fill, and the spoon-and-fork's 40% opacity secondary layer are preserved. Icons are decorative within labelled UI controls/metadata.
+- Avoid inherited SVG stroke CSS on these filled icons; set dimensions and positioning on the SVG container without adding outlines.
+- These Iconly assets have their own rights and permissions. Public users should not assume the icon assets have the same open-source license as RecipeKit's code. Confirm downstream redistribution terms before relicensing the artwork.

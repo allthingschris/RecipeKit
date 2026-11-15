@@ -26,7 +26,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #b58567;outline-offse
 .brand-mark i{width:7px;height:7px;background:#8c7059;border-radius:2.5px;display:block}
 .print{border:1px solid #dadbd5;border-radius:999px;background:transparent;display:flex;align-items:center;gap:9px;padding:10px 17px;color:#555a52;font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
 .print:hover{background:#ecebe5;border-color:#c7c9c0}
-.print svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7}
+.print svg{width:18px;height:18px;display:block;flex-shrink:0}
 .intro{padding:60px 0 64px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,6vw,94px);align-items:center}
 .intro-copy{padding:8px 0;}
 .intro--no-image{grid-template-columns:minmax(0,1fr)}
@@ -35,7 +35,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #b58567;outline-offse
 h1{font-size:clamp(46px,5.45vw,78px);font-weight:680;line-height:1.035;letter-spacing:-.068em;margin:26px 0 22px;max-width:590px}
 .summary{font-size:clamp(16px,1.4vw,18px);color:#73756f;line-height:1.68;max-width:470px;margin:0}
 .yield{display:inline-flex;align-items:center;gap:11px;margin-top:30px;font-size:13px;color:#5f635b;font-weight:560}
-.yield svg{width:18px;height:18px;stroke:var(--accent);stroke-width:1.6;fill:none}
+.yield svg{width:20px;height:20px;display:block;flex-shrink:0}
 .yield strong{color:#2b302a;font-weight:700}
 .image-wrap{margin:0;min-width:0}
 .hero{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:23px;box-shadow:0 22px 40px rgba(38,32,19,.065);background:#ece6da}
@@ -85,7 +85,7 @@ h1{font-size:clamp(46px,5.45vw,78px);font-weight:680;line-height:1.035;letter-sp
       {{SITE_NAME}}
     </div>
     <button class="print" type="button" onclick="window.print()" aria-label="Print recipe">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M6 17H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z" /></svg>
+      {{PRINT_ICON}}
       Print recipe
     </button>
   </div>

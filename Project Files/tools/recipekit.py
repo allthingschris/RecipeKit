@@ -161,6 +161,8 @@ def markdown(recipe: dict) -> str:
 # HTML is rendered from a standalone RecipeKit template rather than inline HTML.
 # Edit Project Files/templates/recipe.html to adjust the shared design.
 TEMPLATE_PATH = BASE / "templates" / "recipe.html"
+ICON_PRINTER = (BASE / "assets" / "icons" / "printer.svg").read_text(encoding="utf-8").strip()
+ICON_UTENSILS = (BASE / "assets" / "icons" / "spoon-fork.svg").read_text(encoding="utf-8").strip()
 
 
 def _count_words(n: int) -> str:
@@ -226,8 +228,7 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
     if recipe.get("recipeYield"):
         yield_block = (
             '<div class="yield">'
-            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v7a4 4 0 0 0 8 0V4M8 4v16M17 4c3 4 3 8 0 12h-2V4h2Zm0 12v4" '
-            'stroke-linecap="round" stroke-linejoin="round" /></svg>'
+            f'{ICON_UTENSILS}'
             f'Makes <strong>{e(recipe["recipeYield"])}</strong></div>'
         )
     time_fields = (("prepTime", "Prep"), ("cookTime", "Cook"), ("totalTime", "Total"))
@@ -236,6 +237,7 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
     structured = json.dumps(jsonld(recipe, base_url), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     mapping = {
         "TITLE": e(recipe["name"]),
+        "PRINT_ICON": ICON_PRINTER,
         "SITE_NAME": e(site_name),
         "DESCRIPTION_ATTR": e(recipe.get("description") or recipe["name"], quote=True),
         "JSON_LD": structured,
