@@ -12,6 +12,7 @@ Create convincing premium-but-approachable cookbook photography. Every image sho
 - Subjects: prepared final dish, accurate ingredients and plausible preparation/texture.
 - Props: minimal, credible, food-relevant, never unlisted garnishes, sauces, elaborate sides or branded goods.
 - Surface and plate: a small curated palette; neutral linen, light stone, warm wood or simple ceramics.
+- Serving vessel variety: do not assume every casserole should be photographed in a traditional rectangular casserole or baking dish. Use appropriate round or oval bakeware, skillets, shallow bowls, plates, or a realistic served portion when it presents the finished recipe well. Vary vessels across the collection; remain faithful to the food's baked texture and any equipment constraints in the source.
 - Text: none. No labels, logo, watermark or fake restaurant branding.
 - Lighting/finish: steady across presets; changing a scene must not make it look like a different cookbook.
 - Disclosure: mark asset origin as AI-generated. Do not call the result a genuine photograph of food the user cooked.
@@ -34,7 +35,7 @@ All presets share the **same camera realism, exposure, restrained color grading,
 ## Review checklist
 
 - Visually plausible for ingredients and steps? Not accidentally adding ingredients, sauce or garnish?
-- Correct dish form, portion, texture, and cookware/plating cues?
+- Correct dish form, portion, texture, and cookware/plating cues? Are casserole images being varied rather than defaulting to rectangular baking dishes?
 - Matches the shared editorial look and 4:3 master ratio?
 - Attractive natural lighting and a quiet, appropriate scene?
 - Clearly labelled as AI-generated in recipe asset metadata?
