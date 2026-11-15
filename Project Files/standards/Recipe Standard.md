@@ -117,6 +117,7 @@ Keep the source's original ingredient order and group names. Source text can be 
 ## 7. Time, temperatures, and yields
 
 - Store known durations as ISO 8601 (`PT15M`, `PT1H20M`). Display spelled out: `15 minutes`, `1 hour`, `1 hour 20 minutes`.
+- When the printed source explicitly labels its duration `Bake`, store its heading duration as Schema.org `cookTime` and use `_library.timeLabels.cookTime = "Bake"` so HTML displays `Bake: 30 minutes` instead of generic `Cook`. Do not invent or silently reconcile a printed 30-minute summary with instructions saying 30–35 minutes; preserve both with their original roles.
 - For an instruction range, display `20–25 minutes` (en dash). Do not invent machine-readable timers or cook time when the source only contains an endpoint such as "until firm."
 - Omit absent prep/cook/total durations in JSON, HTML and Markdown; never show `Times not supplied` or substitute zero.
 - `totalTime` should represent genuinely known elapsed time; it may include resting or overlap and should not automatically equal prep plus cook.
@@ -142,8 +143,9 @@ Keep the source's original ingredient order and group names. Source text can be 
 3. **Parse** to structured fields; preserve uncertainties as temporary review questions instead of guessing.
 4. **Normalize** spelling, units, time representations, ingredient capitalization, step verbs, yield and category according to this standard.
 5. **Audit** the provisional JSON against source images. Pay particular attention to 1/2 vs 1/4, tablespoons vs teaspoons, Fahrenheit vs Celsius, and multi-column layouts.
-6. **Review separately** with the owner. Confirm title, yield, ingredient accuracy, variants, hero art, and source-retention preference. Keep questions and approvals in chat or a temporary document.
-7. **Finalize** only after explicit confirmation. Verify final outputs and any source cleanup. Discard ephemeral notes; move broadly applicable rule changes to ProjectKit Decisions.md and update this standard.
+6. **Prepare a complete first-review package:** render the provisional recipe with source-faithful time labels and generate a matching, 4:3, AI-disclosed hero image in the approved photographic style before requesting the first owner review. Keep the image and recipe marked pending; do not claim approval or commit them as finalized. Avoid staging generated images within public RecipeKit.
+7. **Review separately** with the owner. Confirm title, yield, ingredient accuracy, variants, hero art, and source-retention preference. Keep questions and approvals in chat or a temporary document.
+8. **Finalize** only after explicit confirmation. Verify final outputs and any source cleanup. Discard ephemeral notes; move broadly applicable rule changes to ProjectKit Decisions.md and update this standard.
 
 An approved recipe does not have to be taste-tested. `validated` means it matches the source and house rules, not that the cooking result has been tested.
 
