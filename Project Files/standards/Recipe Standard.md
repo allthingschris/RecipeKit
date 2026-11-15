@@ -167,6 +167,10 @@ Minimum validated record: Schema.org root, stable UUID, nonblank title, approved
 
 **Deferred:** Mela app adapters, nutrition estimates, advanced scaling and automated site ingestion. Tests should ensure all outputs preserve ingredient order, variants, quantities, temperatures, yield, and steps.
 
+### HTML design and typography
+
+Use the approved RecipeKit editorial HTML template in `Project Files/templates/recipe.html`. The default typeface is **Google Sans Flex** (Google Fonts) with system-font fallback. Preserve responsive hero presentation, ingredient checkboxes, numbered steps, variation cards, and print support. No footer text saying “Illustrative food imagery.” See `HTML Style.md` for rules.
+
 ## 13. Naming and versioning
 
 - Stable ID: UUID that does not change with category, title or filename.

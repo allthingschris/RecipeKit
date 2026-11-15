@@ -113,3 +113,20 @@ Fewer formats reduce maintenance and avoid drift. App adapters can be developed 
 
 **Consequences**
 Tooling must include validation and reproducible rendering, including Schema.org Recipe JSON-LD in HTML without private metadata.
+
+## D008 — Adopt the editorial HTML template and Google Sans Flex
+
+**Date:** 2026-11-15
+
+**Context**
+The first rendered recipe's editorial redesign was reviewed and approved. The earlier generator used a denser generic layout, and the approved preview displayed an unnecessary footer image disclaimer.
+
+**Decision**
+Use the polished responsive recipe design as RecipeKit's shared HTML template, including ingredient checkboxes, prominent image, numbered steps, flavor-variation cards and print support. Prefer Google Sans Flex for typography with system-font fallbacks. Remove the bottom “Illustrative food imagery” notice while preserving accurate image-origin metadata.
+
+**Rationale**
+A single reusable template gives every collection a coherent, attractive interface without maintaining HTML independently for each recipe. The font and restrained editorial style reflect the chosen aesthetic.
+
+**Consequences**
+The renderer must load `Project Files/templates/recipe.html`, generate HTML from approved `recipe.json` data, preserve offline fallback behavior and render optional fields only when present. `Project Files/standards/HTML Style.md` owns the detailed presentation contract.
+

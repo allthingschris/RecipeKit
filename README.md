@@ -50,3 +50,7 @@ One `recipe.json` is the source of truth. Schema.org `Recipe` properties remain 
 This repository is public. A redistribution license has not yet been selected, so this repository should not be described as open-source licensed until a license is approved. Do not add source scans or private library recipes here.
 
 See `Project Files/standards/Recipe Standard.md` and `At a Glance/Next.md` for the remaining decisions.
+
+## HTML design
+
+The `Project Files/templates/recipe.html` template provides the approved responsive editorial layout, powered by Google Sans Flex with system-font fallbacks. See `Project Files/standards/HTML Style.md` and render with `python3 "Project Files/tools/recipekit.py" render <recipe.json>`.

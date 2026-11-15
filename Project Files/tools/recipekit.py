@@ -158,56 +158,114 @@ def markdown(recipe: dict) -> str:
         for var in m['variations']:lines += ['### '+var['name'],'',var['description'],'']
     return '\n'.join(lines).rstrip()+'\n'
 
-STYLE="""
-:root{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f7f3;color:#292a26}
-*{box-sizing:border-box}body{margin:0}main{max-width:1000px;margin:auto;padding:36px 30px 80px}
-header{padding:20px 0 24px}.eyebrow{font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#73766c;font-weight:700}
-h1{font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:1.05;letter-spacing:-.055em;margin:12px 0 18px}
-.lead{max-width:690px;color:#646861;font-size:1.1rem;line-height:1.55}.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
-.chip{background:#e9e9e3;color:#464942;border-radius:40px;padding:8px 14px;font-size:.87rem}
-.hero{aspect-ratio:4/3;border-radius:20px;overflow:hidden;margin:0 0 46px;background:#edede8}.hero img{display:block;width:100%;height:100%;object-fit:cover}
-.columns{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:60px}
-h2{letter-spacing:-.035em;font-size:1.55rem;margin:0 0 24px}h3{font-size:1rem;margin:24px 0 8px}
-li{padding-left:4px;line-height:1.62;margin-bottom:11px}ul{padding-left:22px}ol{padding-left:26px}ol li{padding-left:8px;margin-bottom:24px}
-.variations{margin-top:48px;border-top:1px solid #dbddd5;padding-top:35px}.variations p{line-height:1.6;color:#5e6159;margin:3px 0 18px}
-footer{color:#878a82;font-size:.78rem;border-top:1px solid #dbddd5;margin-top:60px;padding-top:17px}
-@media(max-width:700px){main{padding:22px 20px 64px}.columns{display:block}.columns section+section{margin-top:44px}.hero{border-radius:14px}}
-""".strip()
-def html_page(recipe: dict, base_url: str|None=None) -> str:
-    e=html.escape;m=recipe['_library']
-    chips=[recipe.get('recipeCategory'),recipe.get('recipeYield')]
-    chips += [label+': '+duration_text(recipe[key]) for key,label in [('prepTime','Prep'),('cookTime','Cook'),('totalTime','Total')] if key in recipe]
-    chips_html=''.join(f'<span class="chip">{e(v)}</span>' for v in chips if v)
-    image=(m.get('assets') or {}).get('hero') or {}
-    pic=f'<figure class="hero"><img src="{e(image["path"],quote=True)}" alt="{e(image.get("alt",recipe["name"]),quote=True)}"></figure>' if image.get('path') else ''
-    li='';old=None
-    for item in m['ingredients']:
-        grp=item.get('group')
-        if grp and grp!=old:li+=f'<h3>{e(grp)}</h3>'
-        li+=f'<li>{e(ingredient_text(item))}</li>';old=grp
-    ol=''.join(f'<li>{e(step)}</li>' for step in steps(recipe))
-    variants=''
-    if m.get('variations'):
-        variants='<section class="variations"><h2>Flavor variations</h2>'+''.join(
-            f'<h3>{e(v["name"])}</h3><p>{e(v["description"])}</p>' for v in m['variations'])+'</section>'
-    lead=f'<p class="lead">{e(recipe["description"])}</p>' if recipe.get('description') else ''
-    structured=json.dumps(jsonld(recipe,base_url),ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(recipe['name'])}</title><meta name="description" content="{e(recipe.get('description',recipe['name']),quote=True)}">
-<style>{STYLE}</style><script type="application/ld+json">{structured}</script></head>
-<body><main><header><div class="eyebrow">Recipe</div><h1>{e(recipe['name'])}</h1>{lead}<div class="meta">{chips_html}</div></header>
-{pic}<div class="columns"><section><h2>Ingredients</h2><ul>{li}</ul></section><section><h2>Instructions</h2><ol>{ol}</ol></section></div>
-{variants}<footer>RecipeKit · Generated food imagery is illustrative.</footer></main></body></html>'''
+# HTML is rendered from a standalone RecipeKit template rather than inline HTML.
+# Edit Project Files/templates/recipe.html to adjust the shared design.
+TEMPLATE_PATH = BASE / "templates" / "recipe.html"
 
 
-def output_files(recipe: dict, base_url: str|None=None) -> dict[str,str]:
-    return {'recipe.md':markdown(recipe),'recipe.html':html_page(recipe,base_url),
+def _count_words(n: int) -> str:
+    numbers = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
+    return numbers[n] if 0 <= n < len(numbers) else str(n)
+
+
+def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recipe Library") -> str:
+    e = html.escape
+    meta = recipe["_library"]
+    ing_html, previous_group = [], None
+    for item in meta["ingredients"]:
+        group = item.get("group")
+        if group and group != previous_group:
+            ing_html.append(f'<li class="ingredient-group">{e(group)}</li>')
+        label = ingredient_text(item)
+        ing_html.append(
+            f'<li class="ingredient"><label><input type="checkbox" aria-label="Gather {e(label, quote=True)}">'
+            f'<span>{e(label)}</span></label></li>'
+        )
+        previous_group = group
+    step_html = [
+        f'<li class="step"><span class="step-number" aria-hidden="true">{i}</span><p>{e(step)}</p></li>'
+        for i, step in enumerate(steps(recipe), 1)
+    ]
+    count = len(step_html)
+    steps_subtitle = f'Just {_count_words(count)} simple {"step" if count == 1 else "steps"}.'
+
+    image = (meta.get("assets") or {}).get("hero") or {}
+    hero_block = ""
+    if image.get("path"):
+        image_path = Path(image["path"])
+        if image_path.is_absolute() or ".." in image_path.parts:
+            raise ValueError("Unsafe hero image path")
+        caption = '<figcaption>AI-generated illustration</figcaption>' if image.get("origin") == "ai-generated" else ""
+        hero_block = (
+            '<figure class="image-wrap">'
+            f'<img class="hero" src="{e(image["path"], quote=True)}" '
+            f'alt="{e(image.get("alt", recipe["name"]), quote=True)}">'
+            f'{caption}</figure>'
+        )
+
+    variation_items = meta.get("variations") or []
+    variations_block = ""
+    if variation_items:
+        v_count = len(variation_items)
+        heading = f'{_count_words(v_count).capitalize()} flavor {"variation" if v_count == 1 else "variations"}'
+        cards = "\n".join(
+            '<article class="variation">'
+            f'<p class="eyebrow">Variation {i:02d}</p>'
+            f'<h3>{e(v["name"])}</h3><p>{e(v["description"])}</p></article>'
+            for i, v in enumerate(variation_items, 1)
+        )
+        variations_block = (
+            '<section class="variations" aria-labelledby="variations-heading">'
+            '<div class="variation-head">'
+            '<h2 class="section-title" id="variations-heading">Make it your own</h2>'
+            f'<p>{heading}</p></div>'
+            f'<div class="variation-grid">{cards}</div></section>'
+        )
+
+    yield_block = ""
+    if recipe.get("recipeYield"):
+        yield_block = (
+            '<div class="yield">'
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v7a4 4 0 0 0 8 0V4M8 4v16M17 4c3 4 3 8 0 12h-2V4h2Zm0 12v4" '
+            'stroke-linecap="round" stroke-linejoin="round" /></svg>'
+            f'Makes <strong>{e(recipe["recipeYield"])}</strong></div>'
+        )
+    time_fields = (("prepTime", "Prep"), ("cookTime", "Cook"), ("totalTime", "Total"))
+    times = [f'<span><strong>{label}:</strong> {e(duration_text(recipe[key]))}</span>' for key, label in time_fields if key in recipe]
+    time_block = '<div class="time-meta">' + "".join(times) + '</div>' if times else ""
+    structured = json.dumps(jsonld(recipe, base_url), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    mapping = {
+        "TITLE": e(recipe["name"]),
+        "SITE_NAME": e(site_name),
+        "DESCRIPTION_ATTR": e(recipe.get("description") or recipe["name"], quote=True),
+        "JSON_LD": structured,
+        "INTRO_CLASS": "" if hero_block else "intro--no-image",
+        "CATEGORY": e(recipe.get("recipeCategory", "")),
+        "SUMMARY_BLOCK": f'<p class="summary">{e(recipe["description"])}</p>' if recipe.get("description") else "",
+        "YIELD_BLOCK": yield_block,
+        "TIME_BLOCK": time_block,
+        "HERO_BLOCK": hero_block,
+        "INGREDIENT_ITEMS": "\n".join(ing_html),
+        "STEPS_SUBTITLE": e(steps_subtitle),
+        "STEP_ITEMS": "\n".join(step_html),
+        "VARIATIONS_BLOCK": variations_block,
+    }
+    page = TEMPLATE_PATH.read_text(encoding="utf-8")
+    for key, value in mapping.items():
+        page = page.replace("{{" + key + "}}", value)
+    if re.search(r"\{\{[A-Z_]+\}\}", page):
+        raise ValueError("Unresolved recipe template placeholder")
+    return page.rstrip() + "\n"
+
+
+def output_files(recipe: dict, base_url: str|None=None, site_name: str="Recipe Library") -> dict[str,str]:
+    return {'recipe.md':markdown(recipe),'recipe.html':html_page(recipe,base_url,site_name),
             'recipe.jsonld':json.dumps(jsonld(recipe,base_url),indent=2,ensure_ascii=False)+'\n'}
 
 
-def write_outputs(recipe: dict, source: Path, out: Path, base_url: str|None=None) -> None:
+def write_outputs(recipe: dict, source: Path, out: Path, base_url: str|None=None, site_name: str="Recipe Library") -> None:
     out.mkdir(parents=True,exist_ok=True)
-    for filename,content in output_files(recipe,base_url).items():
+    for filename,content in output_files(recipe,base_url,site_name).items():
         (out/filename).write_text(content,encoding='utf-8');print('Wrote',out/filename)
     hero=(recipe['_library'].get('assets') or {}).get('hero') or {}
     if hero.get('path'):
@@ -225,7 +283,9 @@ def run() -> int:
         p=sp.add_parser(command);p.add_argument('recipe',type=Path)
         if command=='render':
             p.add_argument('--out',type=Path);p.add_argument('--allow-draft',action='store_true')
-        if command in ('render','verify'):p.add_argument('--base-url')
+        if command in ('render','verify'):
+            p.add_argument('--base-url')
+            p.add_argument('--site-name', default='Recipe Library')
     sp.add_parser('validate-all').add_argument('root',type=Path)
     args=ap.parse_args()
     if args.command=='validate-all':
@@ -250,9 +310,9 @@ def run() -> int:
         print('PASS',args.recipe)
         return 0
     try:
-        if args.command=='render':write_outputs(recipe,args.recipe,args.out or args.recipe.parent,args.base_url)
+        if args.command=='render':write_outputs(recipe,args.recipe,args.out or args.recipe.parent,args.base_url,args.site_name)
         else:
-            stale=[name for name,txt in output_files(recipe,args.base_url).items() if not (args.recipe.parent/name).exists() or (args.recipe.parent/name).read_text()!=txt]
+            stale=[name for name,txt in output_files(recipe,args.base_url,args.site_name).items() if not (args.recipe.parent/name).exists() or (args.recipe.parent/name).read_text()!=txt]
             if stale:print('Stale or absent generated files:',', '.join(stale));return 1
             print('PASS: generated files are current')
     except (ValueError,OSError) as e:print('ERROR',e,file=sys.stderr);return 2
