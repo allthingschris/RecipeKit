@@ -10,7 +10,7 @@ Create convincing, approachable **Bright Editorial** cookbook photography inform
 
 - Framing: 4:3 landscape master. Choose a well-suited angle and enough breathing room; use medium-distance, eye-level/three-quarter, or overhead framing depending on the food. No mandatory camera angle.
 - Subjects: prepared final dish, accurate ingredients and plausible preparation/texture.
-- Props: minimal, deliberate, food-relevant. Avoid unlisted edible garnishes, sauces, elaborate sides or branded goods; if an item isn't supported by the recipe, don't suggest it is a required ingredient. When in doubt, use no props.
+- Props: minimal, deliberate, food-relevant. Utensils are optional, often best omitted; never default to a fork or spoon on the right of every dish. Avoid unlisted edible garnishes, sauces, elaborate sides or branded goods; if an item isn't supported by the recipe, don't suggest it is a required ingredient. When in doubt, use no props.
 - Surface and plate: a restrained palette with room for variety: light stone, warm wood, colored ceramics, simple trays, plates, bowls, and occasional linen. Do not default to a towel, rectangular baking dish, or a bowl of herbs as background decoration.
 - Serving vessel variety: do not assume every casserole should be photographed in a traditional rectangular casserole or baking dish. Use appropriate round or oval bakeware, skillets, shallow bowls, plates, or a realistic served portion when it presents the finished recipe well. Vary vessels across the collection; remain faithful to the food's baked texture and any equipment constraints in the source.
 - Text: none. No labels, logo, watermark or fake restaurant branding.
@@ -30,7 +30,7 @@ All three are equally valid for **any** recipe, including desserts, casseroles, 
 Selection guidance:
 1. Start with the composition that most honestly communicates the finished recipe, rather than choosing randomly in isolation.
 2. Look at the last few recipes and lightly vary camera angle, serving vessel and style when two equally strong compositions are possible. Intentional randomness prevents visually identical consecutive covers.
-3. Within a style, vary backgrounds, tableware, and crop deliberately; a plated serving is not always a cream bowl, and an overhead need not include a towel.
+3. Within a style, vary backgrounds, tableware, crop, camera angle, subject placement and whether props appear. Compare adjacent images for repeated layouts, especially a centered dish with a utensil on the right. Vary these features according to the dish rather than a mechanical rotation; a plated serving is not always a cream bowl, and an overhead need not include a towel.
 4. Keep background food props and garnishes true to the source; don't add salt flakes, parsley, a salad, extra grated cheese or drinks merely to make a photo look styled.
 5. Show only food photography in the hero itself: **no layouts, comparison boards, UI, typography, labels or multi-panel collages**. Comparison sheets may be used for review but never as recipe heroes.
 
