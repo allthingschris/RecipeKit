@@ -196,3 +196,7 @@ Use the approved RecipeKit editorial HTML template in `Project Files/templates/r
 - Public project licensing and future distribution mechanism.
 
 **References:** [Schema.org Recipe](https://schema.org/Recipe) · [Google recipe structured data](https://developers.google.com/search/docs/appearance/structured-data/recipe) · [ProjectKit](https://github.com/allthingschris/ProjectKit)
+
+## Cookware and equipment
+
+Store a source-supported checklist in `_library.equipment` as an ordered array of nonempty strings. Include consequential cookware with stated capacity/dimensions and quantity, plus special supplies such as cheesecloth and kitchen string. Preserve source alternatives. Do not invent unspecified sizes or clutter the list with routine utensils. Equipment is a preparation aid, not an ingredient or cooking step.

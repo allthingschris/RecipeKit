@@ -151,6 +151,8 @@ def markdown(recipe: dict) -> str:
         g=item.get('group')
         if g and g!=oldgroup:lines += ['### '+g,'']
         lines.append('- '+ingredient_text(item));oldgroup=g
+    if m.get('equipment'):
+        lines += ['','## Cookware & equipment',''] + ['- [ ] '+item for item in m['equipment']]
     lines += ['','## Instructions','']
     lines += [f'{i}. {step}' for i,step in enumerate(steps(recipe),1)]
     if m.get('variations'):
@@ -209,6 +211,20 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
             '</figure>'
         )
 
+    equipment = meta.get("equipment") or []
+    equipment_block = ""
+    if equipment:
+        items = "".join(
+            f'<li class="ingredient"><label><input type="checkbox" aria-label="Gather {e(item, quote=True)}"><span>{e(item)}</span></label></li>'
+            for item in equipment
+        )
+        equipment_block = (
+            '<section class="equipment" aria-labelledby="equipment-heading">'
+            '<h2 class="section-title" id="equipment-heading">Cookware &amp; equipment</h2>'
+            '<p class="section-sub">Gather these before you begin.</p>'
+            f'<ul class="ingredients">{items}</ul></section>'
+        )
+
     variation_items = meta.get("variations") or []
     variations_block = ""
     if variation_items:
@@ -252,6 +268,7 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
         "YIELD_BLOCK": yield_block,
         "TIME_BLOCK": time_block,
         "HERO_BLOCK": hero_block,
+        "EQUIPMENT_BLOCK": equipment_block,
         "INGREDIENT_ITEMS": "\n".join(ing_html),
         "STEPS_SUBTITLE": e(steps_subtitle),
         "STEP_ITEMS": "\n".join(step_html),

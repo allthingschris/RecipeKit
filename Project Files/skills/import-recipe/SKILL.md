@@ -18,3 +18,5 @@ Use `Project Files/standards/Recipe Standard.md`, taxonomy files, and Image Styl
 8. **Present:** deliver a beautiful provisional recipe **separately** from a short list of review questions. Include title/yield/ingredient/step checks, a generated hero for approval, original source Prep/Bake labels when given, and explicit source retention preferences. If the draft is synced to a persistent private collection, add/update its entry in that collection's **single active review queue** for content, imagery and source-photo retention; do not create a per-recipe review.md or persist review notes in the final recipe.
 
 Do not delete source images, add uncertain ingredients, claim OCR perfection, or record final approval during import. Use the `review-recipe` skill next.
+
+9. **Equipment:** extract consequential cookware, stated sizes/capacities/quantities, source alternatives and special supplies into `_library.equipment`. Do not guess sizes. Render the approved checklist before instructions.

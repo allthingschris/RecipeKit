@@ -46,3 +46,5 @@ The generated HTML, Markdown and JSON-LD should be checked into the consumer's r
 - These Iconly assets have their own rights and permissions. Public users should not assume the icon assets have the same open-source license as RecipeKit's code. Confirm downstream redistribution terms before relicensing the artwork.
 
 - Instruction subtitles vary by step count: 1–3 “Let’s get cooking.”; 4–5 “Here’s how to make it.”; 6+ “Follow along, one step at a time.” Avoid “just” or unsupported claims that steps are simple.
+
+- Show Cookware & equipment before instructions when supplied, using the exact `.ingredients` list and `.ingredient` checkbox-row styling: no bullets, matching alignment. Omit empty sections.
