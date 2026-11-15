@@ -126,6 +126,9 @@ Keep the source's original ingredient order and group names. Source text can be 
 
 ## 8. Instructions and variations
 
+**House editorial rule — no narrative fluff.** Reader-facing recipes include cooking information only. Omit personal stories, autobiographical notes, testimonials, quotations, and other non-instructional introductions found in source cookbooks. Retain any genuine cooking directions, ingredient details, safety information, useful substitutions, and variations. Preserve known contributor/source attribution separately in provenance metadata, not as recipe prose.
+
+
 - Each meaningful action is a `HowToStep`; prefer beginning the text with an imperative verb (`Beat`, `Melt`, `Spoon`, `Bake`, `Stir`).
 - Preserve step order, equipment, durations, cooking temperatures, quantities, sensory cues and safety-critical conditions.
 - Keep each step concise without editorializing or silently adding procedures.
