@@ -157,7 +157,7 @@ Only publish original recipe wording, image assets and source extracts when you 
 
 ## 11. Generated food imagery
 
-See `Image Style.md`. Master aspect ratio is **4:3**, with one cohesive editorial photographic identity. Vary curated neutral surfaces and dishes, not basic lighting and visual treatment. Show ingredients and textures supported by the recipe; never invent garnish. Mark images as `ai-generated` and carry accessible alt text.
+See `Image Style.md`. Use the approved **Bright Editorial** photography identity, with realistic daylight, clearer neutrals, restrained color and a **4:3** master. Choose appropriately among `styled-hero`, `plated-serving`, and `overhead-editorial`; vary styles and serving vessels across adjacent recipes without forcing a rigid rotation. Generate standalone food photographs, never layout or text composites. Show only recipe-supported ingredients and textures; do not introduce unlisted garnishes, accompaniments or exaggerated effects. Mark images as `ai-generated` and carry accessible alt text.
 
 ## 12. Validation and exports
 
