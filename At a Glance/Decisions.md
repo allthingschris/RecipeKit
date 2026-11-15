@@ -177,3 +177,19 @@ A complete preview makes approval more efficient and avoids multiple avoidable r
 
 **Consequences**
 `_library.timeLabels.cookTime` may override the displayed duration label to Bake while Schema.org `cookTime` remains machine-readable. Update importer instructions, schema, and HTML renderer; leave finished-library commits gated on approval.
+
+## D012 — Vary casserole serving vessels in food imagery
+
+**Date:** 2026-11-15
+
+**Context**
+Consecutive casserole recipe images tended to show food in similar traditional rectangular casserole dishes, even though a consistent editorial style need not dictate the same cookware in every photograph.
+
+**Decision**
+Avoid defaulting to traditional casserole dishes for every casserole hero image. Vary the presentation with suitable round or oval bakeware, skillets, shallow serving bowls, plates or plated portions when faithful to the cooked dish.
+
+**Rationale**
+Varied food presentation avoids repetitive imagery while preserving the recognizable RecipeKit photographic identity.
+
+**Consequences**
+The image-style guidelines and visual review checklist distinguish a consistent photographic treatment from an unnecessarily fixed serving vessel.
