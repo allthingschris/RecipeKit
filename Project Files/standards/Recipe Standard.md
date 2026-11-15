@@ -23,7 +23,8 @@ This revises the personal library v0.2 proposal to reflect the two-repository ar
 | Platform-neutral AI skills, validation and renderers | Yes | Use tooling |
 | Synthetic demonstration recipes | Yes | No need |
 | Actual recipes, user images and personal notes | Never | Yes |
-| Source photos and temporary reviews | Never | Outside Git until decision |
+| Raw source photos | Never | Outside Git pending separate retention decision |
+| Active review tracker | No | One temporary, durable review queue in the private collection is permitted; no per-recipe review notes in finished recipe folders |
 | Durable project decisions | About toolkit | About collection only |
 
 **RecipeKit** follows ProjectKit 2.0, with all domain assets inside `Project Files/`. Consumers should keep recipes in `Project Files/recipes/<primary-category-slug>/<recipe-slug>/`, at least initially. Category folders are a *provisional* preference; moving categories changes paths, so stable UUIDs must not depend on directory names.
@@ -40,7 +41,7 @@ ham-and-egg-breakfast-burritos/
     hero.png                  # optional, approved, labelled AI origin in metadata
 ```
 
-Temporary `.staging/` OCR scans and active review notes are **not part of the finished recipe**. An AI chat or separate temporary document may hold the review. Do not commit disposable scans merely to delete them later—Git history may still contain them.
+Temporary `.staging/` OCR scans and active review notes are **not part of the finished recipe**. If a private collection keeps draft recipes in Git for continuity, it may commit a **single active review queue** (e.g., `Project Files/reviews/Queue.md`) for per-recipe review checkpoints, unresolved questions and image selections. Remove each recipe's entry when its final review is complete; do not store a `review.md` beside the finished recipe. An AI chat or separate temporary document may be used when a durable queue isn't needed. Do not commit disposable scans merely to delete them later—Git history may still contain them.
 
 ## 3. Public fields and private extension
 
@@ -144,7 +145,7 @@ Keep the source's original ingredient order and group names. Source text can be 
 4. **Normalize** spelling, units, time representations, ingredient capitalization, step verbs, yield and category according to this standard.
 5. **Audit** the provisional JSON against source images. Pay particular attention to 1/2 vs 1/4, tablespoons vs teaspoons, Fahrenheit vs Celsius, and multi-column layouts.
 6. **Prepare a complete first-review package:** render the provisional recipe with source-faithful time labels and generate a matching, 4:3, AI-disclosed hero image in the approved photographic style before requesting the first owner review. Keep the image and recipe marked pending; do not claim approval or commit them as finalized. Avoid staging generated images within public RecipeKit.
-7. **Review separately** with the owner. Confirm title, yield, ingredient accuracy, variants, hero art, and source-retention preference. Keep questions and approvals in chat or a temporary document.
+7. **Review separately** with the owner. Confirm title, yield, ingredient accuracy, variants, hero art, and source-retention preference. For Git-synced drafts, track three independent pending gates (recipe content, imagery, source retention) and specific blockers in one central private review queue. Do not duplicate the queue beside finished recipes; remove entries after completion. When no durable queue exists, keep active questions in chat or a temporary document.
 8. **Finalize** only after explicit confirmation. Verify final outputs and any source cleanup. Discard ephemeral notes; move broadly applicable rule changes to ProjectKit Decisions.md and update this standard.
 
 An approved recipe does not have to be taste-tested. `validated` means it matches the source and house rules, not that the cooking result has been tested.
