@@ -232,7 +232,8 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
             f'Makes <strong>{e(recipe["recipeYield"])}</strong></div>'
         )
     time_fields = (("prepTime", "Prep"), ("cookTime", "Cook"), ("totalTime", "Total"))
-    times = [f'<span><strong>{label}:</strong> {e(duration_text(recipe[key]))}</span>' for key, label in time_fields if key in recipe]
+    time_labels = meta.get("timeLabels") or {}
+    times = [f'<span><strong>{e(time_labels.get(key, label))}:</strong> {e(duration_text(recipe[key]))}</span>' for key, label in time_fields if key in recipe]
     time_block = '<div class="time-meta">' + "".join(times) + '</div>' if times else ""
     structured = json.dumps(jsonld(recipe, base_url), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     mapping = {
