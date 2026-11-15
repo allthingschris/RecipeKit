@@ -161,3 +161,19 @@ The library's house style is a focused, clean recipe that is immediately useful 
 
 **Consequences**
 The Recipe Standard and import skill describe this filter. Review source content to avoid accidentally discarding operational instructions or variations while removing narrative prose.
+
+## D011 — Include timing and imagery in first recipe reviews
+
+**Date:** 2026-11-15
+
+**Context**
+The initial drafts for Chicken Tortilla Casserole and Italian Turkey and Noodles contained source-faithful ingredients and instructions but did not display the source's explicit Bake duration, and generated hero photographs were handled after content review.
+
+**Decision**
+Make first review drafts complete by default: transcribe all available source timing headings, show a source's Bake label distinctly from generic Cook, generate a 4:3 image consistent with the approved photo style, and present the draft recipe and pending image together. Keep source discrepancies (such as a Bake: 30 minutes heading versus a 30–35-minute baking step) intact until review rather than silently reconciling them. Neither generated imagery nor source captures are finalized or deleted before explicit approval.
+
+**Rationale**
+A complete preview makes approval more efficient and avoids multiple avoidable review rounds.
+
+**Consequences**
+`_library.timeLabels.cookTime` may override the displayed duration label to Bake while Schema.org `cookTime` remains machine-readable. Update importer instructions, schema, and HTML renderer; leave finished-library commits gated on approval.
