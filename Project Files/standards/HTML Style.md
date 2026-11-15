@@ -13,7 +13,7 @@
 - Flavor variations appear as restrained two-column cards, stacking on smaller screens.
 - Use a simple masthead, accessible Print button, print stylesheet, semantic headings, image alt text, and Schema.org JSON-LD.
 - Never show unknown durations, review questions, workflow status, generic cooking-method tags, or a bottom-of-page “Illustrative food imagery” notice.
-- Where an illustration is generated, show an unobtrusive image caption and retain its `ai-generated` origin in structured private metadata; don't mistake it for a user's actual photo.
+- Do not show visible image captions, AI-generation labels, badges, watermarks, or food-imagery notices. Retain `ai-generated` origin in structured private metadata and meaningful image alt text; do not describe generated imagery as a user's actual photograph.
 - Recipe content comes solely from `recipe.json`; update template/layout without hand-editing recipe exports.
 
 ## Technical contract

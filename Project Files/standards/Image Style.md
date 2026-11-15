@@ -15,7 +15,7 @@ Create convincing, approachable **Bright Editorial** cookbook photography inform
 - Serving vessel variety: do not assume every casserole should be photographed in a traditional rectangular casserole or baking dish. Use appropriate round or oval bakeware, skillets, shallow bowls, plates, or a realistic served portion when it presents the finished recipe well. Vary vessels across the collection; remain faithful to the food's baked texture and any equipment constraints in the source.
 - Text: none. No labels, logo, watermark or fake restaurant branding.
 - Lighting/finish: softly directional bright daylight, natural-looking highlights and shadows, balanced white point, restrained editing, realistic color. The editorial treatment is consistent even as angles, props and dishes vary.
-- Disclosure: mark asset origin as AI-generated. Do not call the result a genuine photograph of food the user cooked.
+- Provenance: mark asset origin as AI-generated in private metadata. Do not add visible AI labels, captions, badges, or watermarks to recipe previews or exports. Do not call the result a genuine photograph of food the user cooked.
 
 ## Three approved composition styles
 

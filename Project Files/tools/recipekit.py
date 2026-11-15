@@ -197,12 +197,11 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
         image_path = Path(image["path"])
         if image_path.is_absolute() or ".." in image_path.parts:
             raise ValueError("Unsafe hero image path")
-        caption = '<figcaption>AI-generated illustration</figcaption>' if image.get("origin") == "ai-generated" else ""
         hero_block = (
             '<figure class="image-wrap">'
             f'<img class="hero" src="{e(image["path"], quote=True)}" '
             f'alt="{e(image.get("alt", recipe["name"]), quote=True)}">'
-            f'{caption}</figure>'
+            '</figure>'
         )
 
     variation_items = meta.get("variations") or []
