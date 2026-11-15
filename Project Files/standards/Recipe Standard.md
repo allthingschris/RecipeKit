@@ -132,6 +132,7 @@ Keep the source's original ingredient order and group names. Source text can be 
 
 
 - Each meaningful action is a `HowToStep`; prefer beginning the text with an imperative verb (`Beat`, `Melt`, `Spoon`, `Bake`, `Stir`).
+- Group closely connected actions into a manageable cooking phase, not one step per sentence or printed paragraph. Split at distinct preparation/assembly phases, equipment changes, timed cooking stages and finishing actions. Preserve all original details and their order; do not force a target step count.
 - Preserve step order, equipment, durations, cooking temperatures, quantities, sensory cues and safety-critical conditions.
 - Keep each step concise without editorializing or silently adding procedures.
 - Use `HowToSection` only when the original clearly distinguishes sections.

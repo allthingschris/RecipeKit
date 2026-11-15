@@ -189,7 +189,12 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
         for i, step in enumerate(steps(recipe), 1)
     ]
     count = len(step_html)
-    steps_subtitle = f'Just {_count_words(count)} simple {"step" if count == 1 else "steps"}.'
+    if count <= 3:
+        steps_subtitle = "Let’s get cooking."
+    elif count <= 5:
+        steps_subtitle = "Here’s how to make it."
+    else:
+        steps_subtitle = "Follow along, one step at a time."
 
     image = (meta.get("assets") or {}).get("hero") or {}
     hero_block = ""
