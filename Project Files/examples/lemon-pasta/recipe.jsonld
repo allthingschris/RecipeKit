@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Illustrative Lemon Pasta",
+  "description": "Synthetic example for testing RecipeKit data and exports, not a verified cooking recipe.",
+  "recipeCategory": "Main Dishes",
+  "recipeYield": "2 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "200 grams dry pasta",
+    "2 tablespoons unsalted butter",
+    "1 tablespoon lemon juice"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Cook the pasta according to package instructions."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Combine the butter and lemon juice with the pasta."
+    }
+  ]
+}
