@@ -145,3 +145,19 @@ A matched icon family improves visual coherence, while single-source SVG assets 
 
 **Consequences**
 Shared HTML templates and generated recipe pages must use the same assets and avoid inherited strokes that alter filled artwork. Verify any external redistribution scope before granting third-party icon rights.
+
+## D010 — Exclude non-recipe editorial prose
+
+**Date:** 2026-11-15
+
+**Context**
+Printed cookbook photographs can show multiple recipes and include personal anecdotes or quotations alongside the actual ingredients and instructions.
+
+**Decision**
+Import only the user-designated recipe area and exclude personal stories, quotations, testimonials and other narrative fluff from reader-facing recipes. Preserve real cooking details and optionally contributor/source attribution in provenance metadata instead.
+
+**Rationale**
+The library's house style is a focused, clean recipe that is immediately useful for cooking, without printed-cookbook editorial noise.
+
+**Consequences**
+The Recipe Standard and import skill describe this filter. Review source content to avoid accidentally discarding operational instructions or variations while removing narrative prose.
