@@ -193,3 +193,19 @@ Varied food presentation avoids repetitive imagery while preserving the recogniz
 
 **Consequences**
 The image-style guidelines and visual review checklist distinguish a consistent photographic treatment from an unnecessarily fixed serving vessel.
+
+## D013 — Adopt Bright Editorial photography and varied compositions
+
+**Date:** 2026-11-15
+
+**Context**
+Food-photo experiments with Four-Pasta Beef Bake and chocolate chip cookies compared styled whole-dish imagery, individual plated portions, and overhead compositions. The owner liked all three and wanted a cohesive but nonrepetitive collection influenced by Real Simple's approachable editorial photography.
+
+**Decision**
+Adopt Bright Editorial as RecipeKit's shared photographic style: brighter natural light, realistic food texture, balanced neutral whites, restrained saturation, and deliberate composition. Allow three peer composition families—`styled-hero`, `plated-serving`, and `overhead-editorial`—chosen for the food with light variation across the library, not a fixed rotation. Preserve source accuracy and standalone 4:3 food imagery, never recipe-card composites or invented garnish.
+
+**Rationale**
+Consistent photographic treatment ties the collection together while compositional variation prevents identical casserole dish, towel, and camera-angle repetition across recipes and categories, including desserts.
+
+**Consequences**
+Update the image standard, general recipe standard, and initial import workflow. Existing approved photos are not replaced wholesale; future generated heroes use the new approach. User-approved image choices remain in the private collection.
