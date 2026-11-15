@@ -187,6 +187,28 @@
         },
         "assets": {
           "type": "object"
+        },
+        "timeLabels": {
+          "type": "object",
+          "description": "Optional source-faithful human labels for ISO 8601 duration fields; e.g., Bake for cookTime",
+          "properties": {
+            "prepTime": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "cookTime": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "totalTime": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
+          },
+          "additionalProperties": false
         }
       }
     }
