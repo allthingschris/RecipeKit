@@ -11,7 +11,7 @@ Create convincing, approachable **Bright Editorial** cookbook photography inform
 - Framing: 4:3 landscape master. Choose a well-suited angle and enough breathing room; use medium-distance, eye-level/three-quarter, or overhead framing depending on the food. No mandatory camera angle.
 - Subjects: prepared final dish, accurate ingredients and plausible preparation/texture.
 - Props: minimal, deliberate, food-relevant. Utensils are optional, often best omitted; never default to a fork or spoon on the right of every dish. Avoid unlisted edible garnishes, sauces, elaborate sides or branded goods; if an item isn't supported by the recipe, don't suggest it is a required ingredient. When in doubt, use no props.
-- Surface and plate: a restrained palette with room for variety: light stone, warm wood, colored ceramics, simple trays, plates, bowls, and occasional linen. Do not default to a towel, rectangular baking dish, or a bowl of herbs as background decoration.
+- Surface and plate: actively vary the tabletop across neighboring recipes; do not repeatedly default to neutral concrete or light stone. Include restrained warm woods, smooth painted/solid-color surfaces and occasional fabric settings alongside stone. A restrained palette with room for variety: light stone, warm wood, colored ceramics, simple trays, plates, bowls, and occasional linen. Do not default to a towel, rectangular baking dish, or a bowl of herbs as background decoration.
 - Serving vessel variety: do not assume every casserole should be photographed in a traditional rectangular casserole or baking dish. Use appropriate round or oval bakeware, skillets, shallow bowls, plates, or a realistic served portion when it presents the finished recipe well. Vary vessels across the collection; remain faithful to the food's baked texture and any equipment constraints in the source.
 - Text: none. No labels, logo, watermark or fake restaurant branding.
 - Lighting/finish: softly directional bright daylight, natural-looking highlights and shadows, balanced white point, restrained editing, realistic color. The editorial treatment is consistent even as angles, props and dishes vary.
@@ -41,6 +41,7 @@ Selection guidance:
 | `natural-linen` | Beige linen, warm neutral stoneware | Soft breakfast and baked dishes |
 | `light-stone` | Light stone tabletop, quiet neutral plating | Sauces, savory meals and clean compositions |
 | `warm-wood` | Restrained warm wood, muted ceramics | Hearty meals and comfort food |
+| `painted-wood` | Smooth muted painted wood or quiet solid-color tabletop | Surface variety without stone/concrete repetition |
 | `neutral-ceramic` | Simple stoneware and subdued backdrop | General-purpose plated dishes |
 
 All presets share the **same camera realism, exposure, restrained color grading, lighting softness, and editing treatment**.
