@@ -1,18 +1,16 @@
 # Next
 
-**Last updated:** 2026-11-15
+**Last updated:** 2026-11-16
 
 ## Next actions
 
-- [ ] Create `allthingschris/RecipeKit` as a **public** GitHub repository and push this scaffold.
 - [ ] Choose a software/content license before opening reuse rights to third parties.
 - [ ] Review outstanding v0.3 taxonomy, tag and unit conventions before calling the standard v1.0.
-- [ ] Exercise the three skills on two additional varied recipe types; refine ingredient groups and ranges.
 - [ ] Plan future optional web ingestion automation and richer renderers.
 
 ## Blockers
 
-The available GitHub connection cannot create new repositories; only existing repository files can be edited. The owner must create the empty remote first.
+No repository-creation blocker remains. Licensing and the outstanding standard decisions below remain open before a v1.0 release.
 
 ## Open questions
 

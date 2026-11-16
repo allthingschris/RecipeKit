@@ -1,5 +1,9 @@
 # Log
 
+## 2026-11-16 — Documentation and continuity refresh
+
+Refreshed the public README and ProjectKit handoff after the completed consumer review. Removed obsolete repository-creation and initial trial tasks; documented the current cookware, note, instruction and image behavior. Licensing and taxonomy remain open, rather than implying a v1.0 release.
+
   ## 2026-11-15
 
   **Worked on**
@@ -27,4 +31,3 @@ Final public license and typography deployment details for self-hosted/offline f
 
 **Breadcrumbs**
 Keep the Google Fonts URL as a stylesheet reference and system fonts as a fallback. Don't embed font binaries in exported recipes.
-

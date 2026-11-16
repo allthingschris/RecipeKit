@@ -2,7 +2,7 @@
 
 A portable, AI-assisted toolkit for transforming recipe photos, scans, and websites into beautifully consistent, structured recipes.
 
-**Status:** Early alpha. The schema, human-assisted import/review skills, and standard-library validator/renderers are available.
+**Status:** Early alpha, published on GitHub. The v0.3-draft standard, human/AI-assisted import/review skills, schema, validator and renderers are available and have been exercised through a complete consumer collection review. Licensing and v1.0 taxonomy decisions remain open.
 
 RecipeKit owns the **how**: schema, normalization rules, review workflow, image style, validation, and renderers. Your actual recipes live in a different repository, such as a private `recipe-library`. The entire project is scaffolded with [ProjectKit](https://github.com/allthingschris/ProjectKit) 2.0.
 
@@ -10,7 +10,7 @@ RecipeKit owns the **how**: schema, normalization rules, review workflow, image 
 
 1. **Import** a recipe photograph, screenshot, or URL. Transcribe carefully; flag ambiguous quantities and instructions instead of guessing.
 2. **Review** a provisional recipe and its image separately from the final recipe. Collect explicit content and source-retention approvals.
-3. **Finalize** only approved recipes. Publish portable JSON, generated Markdown and HTML; remove transient review material.
+3. **Finalize** only approved recipes. Generate Markdown, HTML and public-compatible JSON-LD from authoritative JSON; remove transient review material.
 4. **Validate** consistent categories, ingredients, yields, and public outputs.
 
 The current import and review skills are **human/AI-assisted instructions**, not a self-running OCR service. The CLI provides real validation and rendering. Automated capture connectors can be added later.
@@ -43,7 +43,7 @@ For an actual collection, run the tool against the private collection's `recipe.
 
 ## Data design
 
-One `recipe.json` is the source of truth. Schema.org `Recipe` properties remain at the root, with additional library structure under `_library`. Public JSON-LD removes `_library`; HTML and Markdown are regenerated, **never edited separately**. Metadata for AI-generated imagery clearly distinguishes it from an actual food photograph.
+One `recipe.json` is the source of truth. Schema.org `Recipe` properties remain at the root, with additional library structure under `_library`. Public JSON-LD removes `_library`; HTML and Markdown are regenerated, **never edited separately**. Private asset metadata records AI origin; reader-facing exports omit AI labels and photo captions. Important cookware is presented as an ingredient-style checklist, and standalone advice is rendered as a note rather than a numbered step.
 
 ## Publishing
 
@@ -54,3 +54,15 @@ See `Project Files/standards/Recipe Standard.md` and `At a Glance/Next.md` for t
 ## HTML design
 
 The `Project Files/templates/recipe.html` template provides the approved responsive editorial layout, powered by Google Sans Flex with system-font fallbacks. See `Project Files/standards/HTML Style.md` and render with `python3 "Project Files/tools/recipekit.py" render <recipe.json>`.
+
+## Current editorial capabilities
+
+- Source-faithful time labels, quantities, yield spacing and meaningful cooking-phase steps.
+- Source-supported cookware capacities, dimensions and special supplies, displayed before instructions.
+- Separate note callouts for handling advice and other non-step guidance.
+- Bright Editorial 4:3 imagery with deliberate variation in framing, placement, surfaces and vessels.
+- Independent content, image and source-retention review, followed by validated exports and verified authorized cleanup.
+
+## Project continuity
+
+Start with [Passport](At%20a%20Glance/Passport.md) for the current handoff and [Next](At%20a%20Glance/Next.md) for remaining work. Durable rules live in [Context](At%20a%20Glance/Context.md), rationale in [Decisions](At%20a%20Glance/Decisions.md), and milestones in [Log](At%20a%20Glance/Log.md). Private consumer recipes and assets stay outside this public repository.

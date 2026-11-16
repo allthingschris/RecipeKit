@@ -1,32 +1,31 @@
 # Passport
 
-**Last updated:** 2026-11-15
+**Last updated:** 2026-11-16
 
 ## What this is
 
-RecipeKit is a public-ready, reusable toolkit for turning source recipes into consistent Schema.org-compatible data, polished views, and AI-generated editorial imagery. It is separate from any individual private recipe library.
+A public reusable toolkit for source-faithful Schema.org recipes, editorial imagery, review workflows, validation and generated views. Consumer recipes remain in separate repositories.
 
 ## Status
 
-Active draft — local scaffold prepared; GitHub remote has not yet been created.
+Published at [allthingschris/RecipeKit](https://github.com/allthingschris/RecipeKit). Early alpha; recipe standard and schema remain v0.3-draft. The toolkit has supported a completed consumer import and final review. No release license has been selected.
 
 ## Current focus
 
-Validate the first toolkit contract and publish a properly licensed public repository.
+Maintain the reviewed import/rendering contract while resolving the remaining release decisions in [Next](Next.md).
 
 ## Next best action
 
-Create the public GitHub repository, select a license, and run tests before first public release.
+Resolve licensing and taxonomy decisions before declaring a v1.0 release.
 
 ## Handoff
 
-ProjectKit 2.0 structure, editorial standards, three reusable skills, a validator, renderers, synthetic example, and tests are included. The v0.3 standards draft incorporates the user’s reviewed formatting and first-recipe decisions while keeping remaining taxonomy options open. Do not add personal source captures or actual library recipes to this repository.
+The Python standard-library CLI validates authoritative JSON and renders Markdown, responsive HTML and public JSON-LD. Current editorial behavior includes source time labels in HTML and Markdown, cookware checklists, cooking-phase steps, note callouts and varied Bright Editorial imagery. Three platform-neutral skills cover import, review and finalization. Personal recipes, scans and generated consumer images must stay outside this public repo.
 
 ## Key references
 
-| What | Where |
-| --- | --- |
-| Written recipe rules | `Project Files/standards/Recipe Standard.md` |
-| Image direction | `Project Files/standards/Image Style.md` |
-| CLI tooling | `Project Files/tools/recipekit.py` |
-| Deferred choices | `At a Glance/Next.md` |
+- [Recipe Standard](../Project%20Files/standards/Recipe%20Standard.md)
+- [Image Style](../Project%20Files/standards/Image%20Style.md)
+- [HTML Style](../Project%20Files/standards/HTML%20Style.md)
+- [CLI](../Project%20Files/tools/recipekit.py)
+- [Next](Next.md)

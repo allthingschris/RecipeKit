@@ -3,7 +3,7 @@
 ## Goals
 
 - Enable repeatable, source-faithful ingestion of photographed, handwritten, printed and web recipes into consistent, portable data.
-- Provide open, platform-neutral house standards, validation, rendering, review skills, and cohesive AI food imagery.
+- Provide shareable, platform-neutral house standards, validation, rendering, review skills, and cohesive AI food imagery.
 - Allow multiple collections to use the same toolkit without publishing any collection’s private content.
 
 ## Constraints
@@ -26,3 +26,11 @@
 ## Structure
 
 The public toolkit owns all standards, taxonomy, skills, schemas and processing tools. A consuming recipe library owns actual recipes and final images, typically under `Project Files/recipes/<primary-category>/<recipe-slug>/`. `ProjectKit` keeps project-level continuity in `At a Glance/`.
+
+## Editorial contract
+
+- Group connected actions into cooking phases, splitting for equipment changes, timed stages and finishing. Preserve source wording and order; do not force a step count.
+- List consequential source-supported cookware and special supplies before instructions, preserving stated sizes and quantities without inventing them. Use ingredient-style checkbox rows.
+- Put standalone handling advice in note callouts rather than numbered steps.
+- Keep AI origin in private metadata without visible image captions. Vary Bright Editorial placement, camera angle, crop, surfaces and vessels while maintaining natural light and sharply resolved materials.
+- Keep content, image and source-retention approvals separate. Existing explicit authorization remains valid; verify exact captures and exports before any authorized deletion.

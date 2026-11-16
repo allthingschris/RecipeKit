@@ -209,3 +209,29 @@ Consistent photographic treatment ties the collection together while composition
 
 **Consequences**
 Update the image standard, general recipe standard, and initial import workflow. Existing approved photos are not replaced wholesale; future generated heroes use the new approach. User-approved image choices remain in the private collection.
+
+## D014 — Make preparation needs visible and separate advice from actions
+
+**Date:** 2026-11-16
+
+**Decision**
+Use source-supported cookware checklists with the same alignment and checkbox styling as ingredients. Preserve specified capacities, dimensions, quantities and special supplies. Break instructions at meaningful cooking phases rather than one step per printed paragraph or sentence. Render standalone handling advice as note callouts and vary instruction subtitles by length.
+
+**Rationale**
+Readers need to gather important equipment before discovering it late in a recipe. Cooking phases support following the process; safety advice and microwave test notes are useful context without being cooking actions.
+
+**Consequences**
+`_library.equipment` and `_library.notes` feed generated views. Do not invent equipment sizes, force a step count, or alter source details when dividing steps.
+
+## D015 — Keep varied imagery crisp and provenance private
+
+**Date:** 2026-11-16
+
+**Decision**
+Extend D013 with deliberate variation in left/center/right placement, overhead/oblique views, close/wider crops and tabletop surfaces. Prefer sharply resolved smooth tableware and realistic food texture. Keep AI origin in private metadata without visible image labels or captions.
+
+**Rationale**
+Shared lighting and realism provide consistency without repeating the same vessel, utensil position or concrete background. Visible image labels clutter the approved reader experience.
+
+**Consequences**
+Review neighboring images for repetition, retain prior alternatives, and generate fresh views only when needed. Source-faithful ingredients and textures remain the default.
