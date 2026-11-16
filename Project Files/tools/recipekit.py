@@ -155,6 +155,9 @@ def markdown(recipe: dict) -> str:
         lines += ['','## Cookware & equipment',''] + ['- [ ] '+item for item in m['equipment']]
     lines += ['','## Instructions','']
     lines += [f'{i}. {step}' for i,step in enumerate(steps(recipe),1)]
+    if m.get('notes'):
+        lines += ['','## Notes','']
+        for note in m['notes']:lines += ['### '+note['title'],'',note['text'],'']
     if m.get('variations'):
         lines += ['','## Flavor variations','']
         for var in m['variations']:lines += ['### '+var['name'],'',var['description'],'']
@@ -225,6 +228,13 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
             f'<ul class="ingredients">{items}</ul></section>'
         )
 
+    notes_block = ""
+    if meta.get("notes"):
+        notes_block = '<aside class="recipe-notes" aria-label="Recipe notes">' + "".join(
+            f'<div class="recipe-note"><h3>{e(note["title"])}</h3><p>{e(note["text"])}</p></div>'
+            for note in meta["notes"]
+        ) + '</aside>'
+
     variation_items = meta.get("variations") or []
     variations_block = ""
     if variation_items:
@@ -269,6 +279,7 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
         "TIME_BLOCK": time_block,
         "HERO_BLOCK": hero_block,
         "EQUIPMENT_BLOCK": equipment_block,
+        "NOTES_BLOCK": notes_block,
         "INGREDIENT_ITEMS": "\n".join(ing_html),
         "STEPS_SUBTITLE": e(steps_subtitle),
         "STEP_ITEMS": "\n".join(step_html),

@@ -46,6 +46,9 @@ h1{font-size:clamp(46px,5.45vw,78px);font-weight:680;line-height:1.035;letter-sp
 .section-sub{font-size:13px;line-height:1.5;color:#8a8d84;margin:12px 0 30px}
 .ingredients{list-style:none;padding:0;margin:0}
 .ingredient{border-bottom:1px solid #e8e7e0}
+.recipe-notes{margin:0 0 24px;padding:16px 20px;background:#f3f1e9;border-left:3px solid var(--accent)}
+.recipe-note h3{margin:0 0 6px;font-size:15px;color:#2b302a}
+.recipe-note p{margin:0;color:#464b44;font-size:14px;line-height:1.6}
 .equipment{grid-column:1 / -1}
 .ingredient-group{list-style:none;margin:15px 0 0;color:#865c42;font-size:12px;font-weight:720;text-transform:uppercase;letter-spacing:.12em}
 .ingredient label{display:flex;align-items:flex-start;gap:13px;padding:15px 0;cursor:pointer;color:#464b44;font-size:15px;line-height:1.52}
@@ -110,6 +113,7 @@ h1{font-size:clamp(46px,5.45vw,78px);font-weight:680;line-height:1.035;letter-sp
     <section aria-labelledby="instructions-heading">
       <h2 class="section-title" id="instructions-heading">Instructions</h2>
       <p class="section-sub">{{STEPS_SUBTITLE}}</p>
+      {{NOTES_BLOCK}}
       <ol class="step-list">{{STEP_ITEMS}}</ol>
     </section>
   </div>

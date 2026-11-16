@@ -200,3 +200,5 @@ Use the approved RecipeKit editorial HTML template in `Project Files/templates/r
 ## Cookware and equipment
 
 Store a source-supported checklist in `_library.equipment` as an ordered array of nonempty strings. Include consequential cookware with stated capacity/dimensions and quantity, plus special supplies such as cheesecloth and kitchen string. Preserve source alternatives. Do not invent unspecified sizes or clutter the list with routine utensils. Equipment is a preparation aid, not an ingredient or cooking step.
+
+- Store standalone handling advice and ingredient-selection guidance in `_library.notes` as `{title, text}` objects, rather than numbered cooking steps. Render important handling notes before the instructions as a distinct callout. Preserve the original advice.
