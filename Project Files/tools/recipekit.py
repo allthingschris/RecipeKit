@@ -141,7 +141,7 @@ def markdown(recipe: dict) -> str:
     lines=['# '+recipe['name'],'']
     if recipe.get('description'):lines += [recipe['description'],'']
     lines += [' · '.join(x for x in [recipe.get('recipeCategory'),recipe.get('recipeYield')] if x),'']
-    times=[label+': '+duration_text(recipe[key]) for key,label in [('prepTime','Prep'),('cookTime','Cook'),('totalTime','Total')] if key in recipe]
+    times=[(m.get('timeLabels') or {}).get(key,label)+': '+duration_text(recipe[key]) for key,label in [('prepTime','Prep'),('cookTime','Cook'),('totalTime','Total')] if key in recipe]
     if times:lines += [' · '.join(times),'']
     hero=(m.get('assets') or {}).get('hero') or {}
     if hero.get('path'):lines += [f"![{hero.get('alt',recipe['name'])}]({hero['path']})",'']
