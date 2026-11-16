@@ -249,7 +249,7 @@ def html_page(recipe: dict, base_url: str | None = None, site_name: str = "Recip
         yield_block = (
             '<div class="yield">'
             f'{ICON_UTENSILS}'
-            f'Makes <strong>{e(recipe["recipeYield"])}</strong></div>'
+            f'<span>Makes: <strong>{e(recipe["recipeYield"])}</strong></span></div>'
         )
     time_fields = (("prepTime", "Prep"), ("cookTime", "Cook"), ("totalTime", "Total"))
     time_labels = meta.get("timeLabels") or {}
